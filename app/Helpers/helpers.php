@@ -10,7 +10,7 @@ if(!function_exists('routeTenant')) {
         $tenantParam = $tenantManager->routeParam();
         return route($name, $params + [
             config('tenant.route_param') => $tenantParam ], $absolute);
-    }
+    }  
 }
 
 

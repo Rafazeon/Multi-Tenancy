@@ -34,8 +34,10 @@ class TenantManager {
             $model = config('tenant.model');
             $this->tenant = $model
                     ::where(config('tenant.field_name'),$this->routeParam())
-                    ->first();
+                    ->first();        
         }
         return $this->tenant;
-    }
+    } 
+    
+    
 }

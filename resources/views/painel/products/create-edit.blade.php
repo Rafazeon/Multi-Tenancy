@@ -19,9 +19,9 @@
 
 
 @if(isset($product))
-    {!! Form::model($product, ['routeTenant' => ['produtos.update', $product->id], 'class' => 'form', 'method' => 'PUT']) !!}
+    {!! Form::model($product, ['url'=>routeTenant('produtos.update', [$product->id]),'method' => 'PUT']) !!}
 @else
-    {!! Form::open (['routeTenant' => 'produtos.store', 'class' => 'form']) !!}
+    {!! Form::open(['url'=>routeTenant('produtos.store'), 'class'=>'form']) !!}
 @endif
 
 	<div class="form-group">		

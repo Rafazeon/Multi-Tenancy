@@ -106,16 +106,17 @@ class ProdutoController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function edit($id)
+  public function edit($account, $id)
   {   
       // Recupera produto pelo id
       $product = $this->product->find($id);
       
       $title = "Editar Produto: {$product->name}";
-
+      
       $categorys = ['Selecione a Categoria','eletronicos', 'moveis', 'limpeza', 'banho'];
       
-      return view('Painel.products.create-edit', compact('title', 'categorys', 'product'));
+      return view('Painel.products.create-edit', compact('title','categorys', 'product'));
+      
       
       
   }
@@ -126,7 +127,7 @@ class ProdutoController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function update(ProductFormRequest $request, $id)
+  public function update(ProductFormRequest $request, $account, $id)
   {     
         // Recupera todos os dados do formulário
         $dataForm = $request->all();
@@ -155,7 +156,7 @@ class ProdutoController extends Controller
    * @param  int  $id
    * @return Response
    */
-  public function destroy($id)
+  public function destroy($account, $id)
   {
     $product = $this->product->find($id);
     
@@ -167,6 +168,7 @@ class ProdutoController extends Controller
         return redirect()->routeTenant('produtos.show', $id)->with(['errors' => 'Falha ao deletar']);
     }
   }
+  
 
   public function tests()
   {

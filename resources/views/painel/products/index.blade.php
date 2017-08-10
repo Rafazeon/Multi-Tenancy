@@ -6,12 +6,7 @@
 
 <h1 class="title-pg">Listagem de Produtos</h1>
 
-{!! Form::open(['url'=>routeTenant('produtos.create'), 'class'=>'form']) !!}
-
-<div class="form-group">
-            {!! Form::submit('Criar Produto', ['class'=>'btn btn-primary']) !!}
-</div>
-{!! Form::close() !!}
+<a href="{{ routeTenant('produtos.create') }}" class="btn btn-primary">Novo Produto</a>
 
 <table class="table table-striped">
 
@@ -28,13 +23,9 @@
                         <td>{{$product->category}}</td>
 			<td>{{$product->description}}</td>			
 			<td>
-                            {!! Form::open(['url'=>routeTenant('produtos.edit', [$product->id]), 'class'=>'form']) !!}
-
-                            <div class="form-group">
-                                {!! Form::submit('Editar Produto', ['class'=>'btn btn-primary']) !!}
-                            </div>
-
-                            {!! Form::close() !!}
+                        <a href="{{routeTenant('produtos.edit',['id'=>$product->id])}}" class="btn btn-default btn-sm">
+                            Editar Produto
+                        </a>
 			</td>
 		</tr>
 	@endforeach
